@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+
 
 @Component({
   selector: 'app-media-item-component',
@@ -6,18 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./media-item-component.component.css']
 })
 export class MediaItemComponentComponent implements OnInit {
-  name : string;
-  wasWatched: Boolean
+  @Input() mediaItem:any;
+  @Output() delete;
+
   constructor() { 
-    this.name = 'Redemption on Wrath'
-    this.wasWatched = true;
-  }
-  watched(): string{
-      
-    return this.wasWatched ? 'The Movie was watched' : 'The movie wasnt watched';
+    this.delete = new EventEmitter;
   }
 
   ngOnInit(): void {
+  }
+
+  onDelete():void{
+    this.delete.emit(this.mediaItem);
   }
 
 }
