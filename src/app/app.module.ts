@@ -7,6 +7,9 @@ import { MediaItemComponentComponent } from './media-item-component/media-item-c
 import { MediaItemListComponentComponent } from './media-item-list-component/media-item-list-component.component';
 import { FavoriteDirective } from './favorite.directive';
 import { CategoryListPipe } from './category-list.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MediaItemFormComponent } from './media-item-form/media-item-form.component';
+import { ReactiveModelMediaItemFormComponent } from './reactive-model-media-item-form/reactive-model-media-item-form.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,15 @@ import { CategoryListPipe } from './category-list.pipe';
     MediaItemComponentComponent,
     MediaItemListComponentComponent,
     FavoriteDirective,
-    CategoryListPipe
+    CategoryListPipe,
+    MediaItemFormComponent,
+    ReactiveModelMediaItemFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
