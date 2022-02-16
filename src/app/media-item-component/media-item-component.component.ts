@@ -11,7 +11,7 @@ export class MediaItemComponentComponent implements OnInit {
   @Output() delete;
 
   constructor() { 
-    this.delete = new EventEmitter;
+    this.delete = new EventEmitter();
   }
 
   ngOnInit(): void {
