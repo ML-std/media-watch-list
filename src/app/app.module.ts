@@ -10,6 +10,8 @@ import { CategoryListPipe } from './category-list.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MediaItemFormComponent } from './media-item-form/media-item-form.component';
 import { ReactiveModelMediaItemFormComponent } from './reactive-model-media-item-form/reactive-model-media-item-form.component';
+import { lookupLists, lookupListToken } from './providers';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,7 @@ import { ReactiveModelMediaItemFormComponent } from './reactive-model-media-item
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{provide: lookupListToken, useValue: lookupLists}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
