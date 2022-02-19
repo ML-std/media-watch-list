@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup,  Validators } from '@angular/forms';
-import { MediaItemServiceService } from '../media-item-service.service';
-import { lookupListToken } from '../providers';
+import { FormBuilder, FormControl,   Validators } from '@angular/forms';
+import { Router } from "@angular/router";
+import { MediaItemServiceService } from 'src/app/media-item-service.service';
+import { lookupListToken } from 'src/app/providers'; 
 
 @Component({
   selector: 'app-reactive-model-media-item-form',
@@ -10,11 +11,13 @@ import { lookupListToken } from '../providers';
 })
 export class ReactiveModelMediaItemFormComponent implements OnInit {
   form: any;
-  constructor( private formBuilder: FormBuilder, private mediaItemService: MediaItemServiceService, @Inject(lookupListToken) public lookuplists:any ) { 
+  constructor( private formBuilder: FormBuilder, private mediaItemService: MediaItemServiceService, @Inject(lookupListToken) public lookuplists:any , private router: Router) { 
 
   }
-  onSubmit(formValue:any){
-    this.mediaItemService.add(formValue);
+  onSubmit(mediaItem:any){
+     this.mediaItemService.add(mediaItem).subscribe(() => {
+       this.router.navigate(['/',mediaItem.medium]);
+     });
   } 
   ngOnInit(): void {
    this.form = this.formBuilder.group({

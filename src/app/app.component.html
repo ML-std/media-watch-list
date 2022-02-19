@@ -1,9 +1,20 @@
+<nav>
+  <a routerLink="/">
+    <img src="assets/04.png" class="icon" />
+  </a>
+  <a routerLink="/Movies">
+    <img src="assets/03.png" class="icon" />
+  </a>
+  <a routerLink="/Series">
+    <img src="assets/02.png" class="icon" />
+  </a>
+</nav>
 <section>
   <header>
     <h1> Media Watch List</h1>
-    <p>Keep Track of The Media</p>
+    <p class="description">Keep Track of The Media</p>
   </header>
-  <app-reactive-model-media-item-form>
-  </app-reactive-model-media-item-form>
-  <app-media-item-list-component ></app-media-item-list-component>
+  <router-outlet>
+  </router-outlet>
+  <router-outlet ></router-outlet>
 </section>
